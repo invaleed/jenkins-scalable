@@ -27,9 +27,9 @@ Copy the whole content printed at the console and go to Jenkins > Credentials > 
 ```sh
 -- Kubernetes
 Name : kubernetes
-Kubernetes URL : https://34.69.72.28 << result from command "kubectl cluster-info | grep master"
+Kubernetes URL : https://34.69.72.28 << "kubectl cluster-info | grep master"
 Credentials : jenkins-sa
-Jenkins URL : http://10.28.2.12:8080/jenkins/ << result from command "kubectl describe pod jenkins-xxx | grep IP:"
+Jenkins URL : http://10.28.2.12:8080/jenkins/ << "kubectl describe pod jenkins-xxx | grep IP:"
 
 -- Pod Template
 Name : jenkins-slave
