@@ -1,17 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: "/"
   name: jenkins-ingress
-  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: hellowhale.id
-      http:
-        paths:
-        - path: /
-          backend:
-            serviceName: jenkins-service
-            servicePort: 8080
+  - host: app.invaleed.web.id
+    http:
+      paths:
+      - path: /jenkins
+        backend:
+          serviceName: jenkins-service
+          servicePort: 8080
